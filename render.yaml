@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: jobpilot-ai
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: JOBPILOT_ACCESS_USER
+        sync: false
+      - key: JOBPILOT_ACCESS_PASSWORD
+        sync: false
